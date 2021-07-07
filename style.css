@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+@media (max-width: 992px) {
+  #layer2 {
+    display: none;
+  }
+  #layer1 {
+    width: 270px;
+  }
+  .container .row .col #layer1 {
+    position: unset;
+  }
+  .container .row .col #kotak3 {
+    position: unset;
+    margin-left: 0px;
+    margin-top: 200px;
+  }
+}
+
+.element,
+html {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar,
+.element::-webkit-scrollbar {
+  display: none;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+}
+h5 {
+  font-family: "Poppins", sans-serif;
+}
+.nav {
+  background-color: white;
+}
+.nav li a {
+  font-family: "Poppins", sans-serif, "calibri";
+  color: black;
+}
+.nav li a:hover {
+  color: rgb(121, 121, 121);
+}
+.nav li .brand {
+  font-size: 1.5em;
+  color: black;
+  font-family: "Righteous", sans-serif;
+}
+.nav li .brand:hover {
+  color: black;
+}
+.container .row .col img {
+  width: 300px;
+}
+.container .row #judul {
+  font-family: "Poppins", sans-serif;
+  font-size: 4em;
+  padding: 0 0 0 9%;
+}
+.container .row .col .garis {
+  width: 8em;
+  height: 10px;
+  background-color: black;
+}
+.desc {
+  padding: 140px 0 0 0;
+}
+#desc {
+  font-family: "Poppins", sans-serif;
+}
+.container .row .col #desc {
+  color: black;
+  margin: 40px;
+}
+#readMore {
+  display: block;
+  background-color: black;
+  color: white;
+}
+#layer2 {
+  position: static;
+  width: 300px;
+  margin: 50px 0 0 30%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.534);
+  z-index: 1;
+}
+#layer1 {
+  position: absolute;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.534);
+  z-index: 2;
+}
+#readmore {
+  width: 300px;
+  top: 40%;
+  left: 20%;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.534);
+  position: fixed;
+  background-color: white;
+  z-index: 3;
+  visibility: hidden;
+  padding: 20px 20px 5px 20px;
+  opacity: 0;
+  transition: 0.5s;
+}
+#readmore.active {
+  top: 40%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+#close {
+  background-color: black;
+  color: white;
+}
+#a2 a {
+  background-color: black;
+  color: white;
+}
+#kotak1 {
+  width: 200px;
+  height: 200px;
+  background-color: orange;
+  text-align: center;
+  font-size: 170px;
+  color: rgba(255, 255, 255, 0.425);
+}
+#kotak2 {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  position: absolute;
+  text-align: center;
+  font-size: 170px;
+  color: rgba(255, 255, 255, 0.425);
+}
+#kotak3 {
+  width: 200px;
+  height: 200px;
+  background-color: cornflowerblue;
+  position: absolute;
+  margin-left: 200px;
+  text-align: center;
+  font-size: 170px;
+  color: rgba(255, 255, 255, 0.425);
+}
+.program {
+  margin-top: 300px;
+}
+#box1 {
+  width: 100%;
+  height: fit-content;
+  background-color: rgba(38, 106, 233, 0.541);
+  padding: 80px;
+  align-items: flex-start;
+}
+#subscribe {
+  background-color: white;
+  color: black;
+}
+#footer .row .col h3 {
+  font-family: "Righteous", sans-serif;
+}
