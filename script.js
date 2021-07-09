@@ -4,3 +4,7 @@ function readmore() {
   var blur = document.getElementById("blur");
   blur.classList.toggle("active");
 }
+function contact() {
+  var contact = document.getElementById("contact");
+  contact.classList.toggle("active");
+}
