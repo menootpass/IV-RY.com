@@ -24,33 +24,39 @@
     <div id="contact">
       <div class="container">
         <div class="row">
-          <h1>Conctact Me</h1>
-          <div class="col">
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label"><p>Email Address :</p></label>
-              <input type="email" class="form-control" id="exampleFormControlInput1 emailadd" placeholder="name@example.com" required />
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label"><p>Message :</p></label>
-              <textarea class="form-control form-control-lg" id="exampleFormControlTextarea1 mssg" rows="3" required></textarea>
-            </div>
-            <div class="row">
-              <div class="col">
-                <ul style="width: 0px" class="nav">
-                  <li class="nav-item">
-                    <a style="background-color: white" class="nav-link" href="mailto:mrs.farhanary@gmail.com?subject=#emailadd&body=#mssg">Send</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col">
-                <ul style="width: 0px" class="nav">
-                  <li class="nav-item">
-                    <a style="background-color: white" class="nav-link" href="#" onclick="contact()">Close</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div class="alert my-alert alert-warning alert-dismissible fade show d-none" role="alert">
+            <strong>Thank You</strong> Your message has been successfully sent.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
+          <h1>Conctact Me</h1>
+          <form name="IV-RY-contact-form">
+            <div class="col">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><p>Email Address :</p></label>
+                <input name="email" type="email" class="form-control" id="exampleFormControlInput1 emailadd" placeholder="name@example.com" required />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"><p>Message :</p></label>
+                <textarea name="pesan" class="form-control form-control-lg" id="exampleFormControlTextarea1 mssg" rows="3" required></textarea>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <button type="submit" class="btn btn-light" id="submit">Send</button>
+                  <button id="loading" class="btn d-none" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                  </button>
+                </div>
+                <div class="col">
+                  <ul style="width: 0px" class="nav">
+                    <li class="nav-item">
+                      <a style="background-color: white" class="nav-link" href="#" onclick="contact()">Close</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -160,6 +166,34 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwJ_FwaWKv5wJVwOx82rlqKrLwedWdwIY-9X5yHHjXNZE_N3uaj9iNHN661zNK1OUxM/exec";
+      const form = document.forms["IV-RY-contact-form"];
+
+      const kirim = document.querySelector("#submit");
+      const loading = document.querySelector("#loading");
+      const alert = document.querySelector(".my-alert");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // ketika send di klik
+        // tampilkan tombol loading
+        // hilangkan tombol kirim
+        loading.classList.toggle("d-none");
+        kirim.classList.toggle("d-none");
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            // tampilkan tombol kirim hilangkan tombol loading
+            loading.classList.toggle("d-none");
+            kirim.classList.toggle("d-none");
+            console.log("Success!", response);
+            alert.classList.toggle("d-none");
+            // clear
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
     </script>
   </body>
 </html>
